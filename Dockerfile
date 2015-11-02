@@ -3,9 +3,9 @@ FROM tomcat:7
 # Download zip file and decompress into /usr/src
 # TODO: Allow changing version, but keep in mind the .properties file is related to the version
 RUN \
-    curl -SL http://sourceforge.net/projects/jasperserver/files/JasperServer/JasperReports%20Server%20Community%20Edition%206.1.0/jasperreports-server-cp-6.1.0-bin.zip -o /tmp/jasperserver.zip && \
+    curl -SL http://sourceforge.net/projects/jasperserver/files/JasperServer/JasperReports%20Server%20Community%20Edition%206.1.1/jasperreports-server-cp-6.1.1-bin.zip -o /tmp/jasperserver.zip && \
     unzip /tmp/jasperserver.zip -d /usr/src/ && \
-    mv /usr/src/jasperreports-server-cp-6.1.0-bin /usr/src/jasperreports-server && \
+    mv /usr/src/jasperreports-server-cp-6.1.1-bin /usr/src/jasperreports-server && \
     rm -rf /tmp/*
 
 # Install JDK and set JAVA_HOME to prepare for js-ant build
