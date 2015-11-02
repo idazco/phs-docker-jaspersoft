@@ -9,7 +9,7 @@ set -e
 REPO="muccg"
 DATE=`date +%Y.%m.%d`
 
-image="${REPO}/jasperreportsserver"
+image="${REPO}/jasper-reports-server"
 version="6.1.0"
 echo "################################################################### ${image}"
         
