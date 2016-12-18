@@ -1,22 +1,25 @@
-db:
-  image: muccg/postgres-ssl:9.4
-  environment:
-    - POSTGRES_USER=jasperapp
-    - POSTGRES_PASSWORD=jasperapp
-  ports:
-    - ":5432"
+version: '2'
+services:
 
-jasper:
-  build: .
-  command: development
-  ports:
-    - :8080
-  links:
-    - db:db
-  environment:
-    - DB_HOST=db
-    - DB_PORT=5432
-    - DB_NAME=jasperapp
-    - DB_USERNAME=jasperapp
-    - DB_PASSWORD=jasperapp
-    - WAIT_FOR_DB=1
+  db:
+    image: muccg/postgres-ssl:9.4
+    environment:
+      - POSTGRES_USER=jasperapp
+      - POSTGRES_PASSWORD=jasperapp
+    ports:
+      - 5432
+
+  jasper:
+    image: muccg/jasper-reports-server:6.1.1
+    command: development
+    ports:
+      - 8080:8080
+    links:
+      - db:db
+    environment:
+      - DB_HOST=db
+      - DB_PORT=5432
+      - DB_NAME=jasperapp
+      - DB_USERNAME=jasperapp
+      - DB_PASSWORD=jasperapp
+      - WAIT_FOR_DB=1
