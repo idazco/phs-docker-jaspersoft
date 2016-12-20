@@ -10,7 +10,7 @@ REPO="muccg"
 DATE=`date +%Y.%m.%d`
 
 image="${REPO}/jasper-reports-server"
-version="6.2.1"
+version="6.3.0"
 echo "################################################################### ${image}"
         
 ## warm up cache for CI

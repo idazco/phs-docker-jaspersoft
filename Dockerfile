@@ -1,6 +1,6 @@
 FROM tomcat:7
 
-ENV JASPER_REPORTS_SERVER_VERSION=6.2.1
+ENV JASPER_REPORTS_SERVER_VERSION=6.3.0
 
 # Install JDK and set JAVA_HOME to prepare for js-ant build
 RUN apt-get update && apt-get install -y -q --no-install-recommends \
