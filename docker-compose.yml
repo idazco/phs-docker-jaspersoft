@@ -9,8 +9,7 @@ jasper-db:
     - 5430:5432
 
 jasper-server:
-  # build: .
-  image: sylnsr/jasper-server
+  build: .
   command: development
   ports:
     - 8080:8080
@@ -23,3 +22,5 @@ jasper-server:
     - DB_USERNAME=jasperapp
     - DB_PASSWORD=jasperapp
     - WAIT_FOR_DB=1
+  extra_hosts:
+    - data_db:10.0.0.104
