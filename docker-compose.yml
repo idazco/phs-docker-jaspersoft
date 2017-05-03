@@ -1,18 +1,21 @@
-db:
-  image: muccg/postgres-ssl:9.4
+jasper-db:
+  # For transparency sake: github.com/sylnsr/docker-postgres-ssl
+  # Uses the official Postgres image with SSL
+  image: sylnsr/postgres-ssl:9.4
   environment:
     - POSTGRES_USER=jasperapp
     - POSTGRES_PASSWORD=jasperapp
   ports:
-    - ":5432"
+    - 5430:5432
 
-jasper:
-  build: .
+jasper-server:
+  # build: .
+  image: sylnsr/jasper-server
   command: development
   ports:
-    - :8080
+    - 8080:8080
   links:
-    - db:db
+    - jasper-db:db
   environment:
     - DB_HOST=db
     - DB_PORT=5432

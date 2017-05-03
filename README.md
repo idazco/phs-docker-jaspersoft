@@ -61,7 +61,8 @@ ip`.**
 ## Running in production
 
 To run in production you should setup a database server in whatever methods you prefer,
-then use the `db-initialize.sh` script to prepare a new database and then run the server, providing the database host and port explicitly:
+then use the `db-initialize.sh` script to prepare a new database and then run the server,
+providing the database host and port explicitly:
 
 ```
 docker run --rm -e DB_HOST=1.2.3.4 -e DB_PORT=5432 -e DB_NAME=jasperserver -e DB_USERNAME=postgres -e DB_PASSWORD=mysecretpassword prevailhs/jaspersoft db-initialize.sh
@@ -69,7 +70,7 @@ docker run -d -P -e DB_HOST=1.2.3.4 -e DB_PORT=5432 -e DB_NAME=jasperserver -e D
 ```
 
 You should then be able to access (after a brief startup time) the
-webserver via whatever routing layer you're using.
+web server via whatever routing layer you're using.
 
 __NOTE: If the database has already been created for your, you can use
 the `--skip-create` flag to only initialize the data in the database.__
