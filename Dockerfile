@@ -31,6 +31,10 @@ RUN rm -rf /usr/local/tomcat/webapps/ROOT && \
   sed -i "s/jasperserver\.root/ROOT.root/g" /usr/local/tomcat/webapps/ROOT/WEB-INF/web.xml && \
   sed -i "s/jasperserver\.root/ROOT.root/g" /usr/local/tomcat/webapps/ROOT/WEB-INF/log4j.properties
 
+
+# the Docker healthcheck command ~ at first start-up it will be "starting" until the Tomcat app is deployed and ready
+HEALTHCHECK CMD curl --fail http://localhost:8080/login.html || exit 1
+
 # Use an entrypoint to do env var to DB setting translation
 COPY entrypoint.sh /
 COPY db-initialize.sh /usr/local/bin/db-initialize.sh
