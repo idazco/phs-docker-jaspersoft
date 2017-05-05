@@ -25,6 +25,7 @@ docker build -t ${image}:latest .
 docker inspect ${image}:${DATE}
 
 # push
-docker push ${image}:${DATE}
-docker push ${image}:${version}
-docker push ${image}:latest
+#docker push ${image}:${DATE}
+#docker push ${image}:${version}
+#docker push ${image}:latest
+# automated build destination: idazco/jasper-server-ce
